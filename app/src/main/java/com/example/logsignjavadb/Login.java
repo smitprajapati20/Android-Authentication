@@ -5,20 +5,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.google.android.material.snackbar.Snackbar;
 
 public class Login extends AppCompatActivity {
 
@@ -34,11 +27,11 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        db = openOrCreateDatabase("FirstJavaDB",MODE_PRIVATE,null);
+        db = openOrCreateDatabase(ConstatSP.DataB,MODE_PRIVATE,null);
         String userTable = "CREATE TABLE IF NOT EXISTS user(userid INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (30), email VARCHAR (30), contact VARCHAR (10), password VARCHAR (30))";
         db.execSQL(userTable);
 
-        sp = getSharedPreferences("FirstJavaDB", MODE_PRIVATE);
+        sp = getSharedPreferences(ConstatSP.DataB, MODE_PRIVATE);
 
         email_l = findViewById(R.id.logMail);
         pass_l = findViewById(R.id.logPass);
@@ -53,7 +46,6 @@ public class Login extends AppCompatActivity {
             if (email.isEmpty()){
                 email_l.setError("Email is required");
                 email_l.requestFocus();
-                return;
             }
             else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 email_l.setError("Incorrect format");
@@ -62,26 +54,27 @@ public class Login extends AppCompatActivity {
             else if (pass.isEmpty()){
                 pass_l.setError("Pass is required");
                 pass_l.requestFocus();
-                return;
             }
             else if (pass.length() < 5){
                 pass_l.setError("Password Length is lower than expected");
                 pass_l.requestFocus();
-                return;
             }
             else {
-                String Check = "SELECT * FROM user WHERE email = '"+email+"' AND password = '"+pass+"' ";
-
-                Cursor cursor = db.rawQuery(Check, null);
-                if(cursor.getCount() > 0){
-                    startActivity(new Intent(Login.this, MainActivity.class));
-                    sp.edit().putString("email", email).commit();
+                Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, pass});
+                if(cursor.moveToFirst()){
+                        sp.edit()
+                                .putInt(ConstatSP.userid, cursor.getInt(0))
+                                .putString(ConstatSP.name, cursor.getString(1))
+                                .putString(ConstatSP.email, cursor.getString(2))
+                                .putString(ConstatSP.contact, cursor.getString(3))
+                                .putString(ConstatSP.password, cursor.getString(4))
+                                .apply();
+                        startActivity(new Intent(Login.this, MainActivity.class));
                     Toast.makeText(Login.this,"Login Successful",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(Login.this,"Login Failed",Toast.LENGTH_SHORT).show();
                 }
-                return;
             }
     });
 
