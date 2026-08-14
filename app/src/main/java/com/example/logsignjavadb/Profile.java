@@ -63,15 +63,17 @@ public class Profile extends AppCompatActivity {
         });
 
         update_p.setOnClickListener(view ->  {
-//            @Override
-//            public void onClick(View view) {
-
                 String updateUser = "UPDATE user SET name = '" + name_P.getText().toString() + "', " +
                         "email = '" + email_P.getText().toString() + "'," +
                         " contact = '" + contact_P.getText().toString() + "', " +
                         "password = '" + password_P.getText().toString() + "' " +
                         "WHERE userid = '" + sp.getInt(ConstatSP.userid, 0) + "'";
                 db.execSQL(updateUser);
+
+                sp.edit().putString(ConstatSP.name, name_P.getText().toString()).commit();
+                sp.edit().putString(ConstatSP.email, email_P.getText().toString()).commit();
+                sp.edit().putString(ConstatSP.contact, contact_P.getText().toString()).commit();
+                sp.edit().putString(ConstatSP.password, password_P.getText().toString()).commit();
 
                 Toast.makeText(Profile.this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
 

@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     EditText name_M;
-    Button logout_m, delete_m,profile_m;
+    Button logout_m, delete_m,profile_m,products_m;
     SQLiteDatabase db;
     SharedPreferences sp;
     @Override
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         logout_m = findViewById(R.id.logout);
         delete_m = findViewById(R.id.delete_btn);
         profile_m = findViewById(R.id.profile);
+        products_m = findViewById(R.id.products);
 
         String email = sp.getString(ConstatSP.email,null);
 
@@ -54,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
         profile_m.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, Profile.class));
+        });
+
+        products_m.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, Products.class));
         });
     }
 }
