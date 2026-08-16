@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -13,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText name_M;
-    Button logout_m, delete_m,profile_m,products_m;
+    TextView name_M;
+    Button logout_m, delete_m,profile_m,category_m;
     SQLiteDatabase db;
     SharedPreferences sp;
     @Override
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         logout_m = findViewById(R.id.logout);
         delete_m = findViewById(R.id.delete_btn);
         profile_m = findViewById(R.id.profile);
-        products_m = findViewById(R.id.products);
+        category_m = findViewById(R.id.category);
 
         String email = sp.getString(ConstatSP.email,null);
 
@@ -57,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, Profile.class));
         });
 
-        products_m.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, Products.class));
+        category_m.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, CategoryActivity.class));
         });
     }
 }

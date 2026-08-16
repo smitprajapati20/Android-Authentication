@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LogSignJavaDB">
         <activity
+            android:name=".Category"
+            android:exported="false" />
+        <activity
             android:name=".Products"
             android:exported="false" />
         <activity

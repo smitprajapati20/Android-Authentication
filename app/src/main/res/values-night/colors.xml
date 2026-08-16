@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
+
+    <color name="btnPurple">#4E81DC</color>
+    <color name="sky">#26354D</color>
+
+    <color name="blue1">#4B6EFF</color>
+    <color name="blue2">#22D3EE</color>
+
+    <color name="splash1">#BB55E9</color>
+    <color name="splash2">#8524B3</color>
+
+    <color name="gray">#B5B5B5</color>
+
+    <!-- Theme colors -->
+    <color name="app_background">#121212</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="card_background">#1E1E1E</color>
+
+</resources>

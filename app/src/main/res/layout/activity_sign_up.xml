@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:text="Sign Up"
-            android:textColor="#330576"
+            android:textColor="@color/btnPurple"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="#786D6D"
+            android:textColor="@color/gray"
             android:text=" / Log In"/>
 
     </LinearLayout>

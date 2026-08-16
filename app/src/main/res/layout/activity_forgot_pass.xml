@@ -16,7 +16,7 @@
         android:gravity="center"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="30dp"
-        android:textColor="#1F41BB"
+        android:textColor="@color/btnPurple"
         android:textStyle="bold"
         />
 
@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:background="@drawable/custom_edittext"
         android:id="@+id/email_forget"
         android:inputType="textEmailAddress"
         android:layout_marginHorizontal="20dp"
@@ -36,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="New Password"
+        android:background="@drawable/custom_edittext"
         android:id="@+id/newPass_forget"
         android:inputType="textPassword"
         android:layout_marginHorizontal="20dp"
@@ -47,6 +49,7 @@
         android:id="@+id/cNewPass_forget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
         android:hint="Confirm New Password"
         android:inputType="textPassword"
         android:layout_marginHorizontal="20dp"
