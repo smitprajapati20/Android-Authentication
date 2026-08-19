@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="btnPurple">#330546</color>
+    <color name="btnPurple">#610F8A</color>
+<!--    #470964-->
     <color name="sky">#D2E3FE</color>
     <color name="blue1">#1E3ABA</color>
     <color name="blue2">#06B6D4</color>
