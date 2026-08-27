@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,8 +17,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView name_M;
-    Button logout_m, delete_m,profile_m,category_m;
+    ImageView profile_m;
+    Button logout_m, delete_m,subCategory_m,category_m;
     SQLiteDatabase db;
     SharedPreferences sp;
     @Override
@@ -32,15 +33,13 @@ public class MainActivity extends AppCompatActivity {
         String userTable = "CREATE TABLE IF NOT EXISTS user(userId INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), email VARCHAR(30), contact VARCHAR(10), password VARCHAR(30))";
         db.execSQL(userTable);
 
-        name_M = findViewById(R.id.main_name);
         logout_m = findViewById(R.id.logout);
         delete_m = findViewById(R.id.delete_btn);
         profile_m = findViewById(R.id.profile_btn);
         category_m = findViewById(R.id.category);
+        subCategory_m = findViewById(R.id.subCategory);
 
         String email = sp.getString(ConstatSP.email,null);
-
-        name_M.setText(sp.getString(ConstatSP.name, null));
 
         logout_m.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, SignUp.class));
@@ -62,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
         profile_m.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, Profile.class));
+        });
+
+        subCategory_m.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, SubCategoryActivity.class));
         });
 
         category_m.setOnClickListener(view -> {

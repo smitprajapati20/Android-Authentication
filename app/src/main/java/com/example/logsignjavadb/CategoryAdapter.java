@@ -1,6 +1,7 @@
 package com.example.logsignjavadb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHolder> {
     Context context;
     int[] idArray;
     String[] nameArray;
     int[] imageArray;
+    ArrayList<CategoryList> arrayList;
 
-    public CategoryAdapter(Context context, int[] idArray, String[] nameArray, int[] imageArray) {
+    public CategoryAdapter(Context context, ArrayList<CategoryList> arrayList) {
         this.context = context;
-        this.idArray = idArray;
-        this.nameArray = nameArray;
-        this.imageArray = imageArray;
+        this.arrayList = arrayList;
     }
 
     @NonNull
@@ -34,7 +36,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHold
         ImageView image;
         TextView name;
 
-
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.item_img);
@@ -43,16 +44,26 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHold
     }
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.MyHolder holder, int position) {
-        holder.image.setImageResource(imageArray[position]);
-        holder.name.setText(nameArray[position]);
+//        holder.image.setImageResource(imageArray[position]);
+//        holder.name.setText(nameArray[position]);
+        holder.image.setImageResource(arrayList.get(position).getImage());
+        holder.name.setText(arrayList.get(position).getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SubCategoryActivity.class);
+                context.startActivity(intent);
+
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
-        return idArray.length;
+        return arrayList.size();
     }
-
-
 }
 
 

@@ -9,18 +9,30 @@
     android:background="@drawable/main_back"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/main_name"
+<!--    <TextView-->
+<!--        android:id="@+id/main_name"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/_35sdp"-->
+<!--        android:layout_marginRight="@dimen/_18sdp"-->
+<!--        android:textSize="@dimen/_15sdp"-->
+<!--        android:background="@drawable/custom_username"-->
+<!--        android:fontFamily="@font/poppins_medium"-->
+<!--        android:layout_gravity="end"-->
+<!--        android:singleLine="true"-->
+<!--        android:ellipsize="end" />-->
+
+    <ImageView
+        android:id="@+id/profile_btn"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_35sdp"
         android:layout_marginRight="@dimen/_18sdp"
-        android:textSize="@dimen/_15sdp"
-        android:background="@drawable/custom_username"
-        android:fontFamily="@font/poppins_medium"
+        android:background="@drawable/rounded_imf"
+        android:src="@drawable/user"
         android:layout_gravity="end"
-        android:singleLine="true"
         android:ellipsize="end" />
 
     <TextView
@@ -76,7 +88,7 @@
                 android:textStyle="bold"
                 android:background="@drawable/custom_button"
                 android:layout_width="@dimen/_98sdp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_gravity="center"
                 android:text="Category" />
@@ -100,19 +112,19 @@
                     android:padding="@dimen/_4sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:background="@drawable/rounded_imf"
-                    android:src="@drawable/user"
+                    android:src="@drawable/subcat_removebg_preview"
                     />
                 <Button
-                    android:id="@+id/profile_btn"
+                    android:id="@+id/subCategory"
                     app:backgroundTint="@null"
                     android:textColor="@color/btnText"
                     android:textStyle="bold"
                     android:background="@drawable/custom_button"
                     android:layout_width="@dimen/_98sdp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_gravity="center"
-                    android:text="Profile" />
+                    android:text="Sub Category" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
