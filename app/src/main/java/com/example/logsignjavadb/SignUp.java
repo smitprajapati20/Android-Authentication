@@ -1,6 +1,7 @@
 package com.example.logsignjavadb;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -19,6 +20,7 @@ public class SignUp extends AppCompatActivity {
     Button signUp_S;
 
     SQLiteDatabase db;
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,8 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         db = openOrCreateDatabase(ConstatSP.DataB,MODE_PRIVATE,null);
+        sp = getSharedPreferences(ConstatSP.DataB, MODE_PRIVATE);
+
 
         String userTable = "CREATE TABLE IF NOT EXISTS user(userId INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), email VARCHAR(30), contact VARCHAR(10), password VARCHAR(30))";
         db.execSQL(userTable);
@@ -78,13 +82,19 @@ public class SignUp extends AppCompatActivity {
                 confirm_password_S.requestFocus();
             }
             else {
-                // "CREATE TABLE IF NOT EXISTS user(userId INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), email VARCHAR(30), contact VARCHAR(10), password VARCHAR(30))";
                 String insertUser = "INSERT INTO user VALUES(null,'"+name+"','"+email+"','"+contact+"','"+password+"')";
                 db.execSQL(insertUser);
+                sp.edit()
+                        .putString(ConstatSP.name, name)
+                        .putString(ConstatSP.email, email)
+                        .putString(ConstatSP.contact, contact)
+                        .putString(ConstatSP.password, password)
+                        .apply();
                 startActivity(new Intent(SignUp.this, MainActivity.class));
                 Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show();
             }
         });
+
         sug_Login.setOnClickListener( view -> {
             startActivity(new Intent(SignUp.this, Login.class));
         });

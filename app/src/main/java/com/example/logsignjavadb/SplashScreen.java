@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-//    ImageView splash_Image;
     SharedPreferences sp;
 
     @Override
@@ -21,7 +20,6 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         sp = getSharedPreferences(ConstatSP.DataB, MODE_PRIVATE);
-//        splash_Image = findViewById(R.id.splash_image);
 
         new Handler().postDelayed(new Runnable() {
             @Override

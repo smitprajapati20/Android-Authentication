@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class ForgotPass extends AppCompatActivity {
 
     EditText newPass_f, c_newPass_f, email_f;
     Button change_pass;
+    ImageView back;
     SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,11 @@ public class ForgotPass extends AppCompatActivity {
         newPass_f = findViewById(R.id.newPass_forget);
         c_newPass_f = findViewById(R.id.cNewPass_forget);
         change_pass = findViewById(R.id.forgetPassword_btn);
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(view -> {
+            startActivity(new Intent(ForgotPass.this, Login.class));
+        });
 
         change_pass.setOnClickListener(view -> {
             String email = email_f.getText().toString().trim();

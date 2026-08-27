@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView name_M;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         name_M = findViewById(R.id.main_name);
         logout_m = findViewById(R.id.logout);
         delete_m = findViewById(R.id.delete_btn);
-        profile_m = findViewById(R.id.profile);
+        profile_m = findViewById(R.id.profile_btn);
         category_m = findViewById(R.id.category);
 
         String email = sp.getString(ConstatSP.email,null);
@@ -47,11 +49,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         delete_m.setOnClickListener(view -> {
-            String delete = "DELETE FROM user WHERE email= '"+email+"'";
-            db.execSQL(delete);
-            startActivity(new Intent(MainActivity.this, Login.class));
-            sp.edit().clear().commit();
-            Toast.makeText(this, "Profile Deleted Successfully", Toast.LENGTH_SHORT).show();
+            Snackbar.make(view, "Are you sure you want to delete your profile?", Snackbar.LENGTH_LONG)
+                    .setAction("DELETE", view1 -> {
+                        String delete = "DELETE FROM user WHERE email= '"+email+"'";
+                        db.execSQL(delete);
+                        startActivity(new Intent(MainActivity.this, Login.class));
+                        sp.edit().clear().commit();
+                        Toast.makeText(this, "Profile Deleted Successfully", Toast.LENGTH_SHORT).show();
+                    })
+                    .show();
         });
 
         profile_m.setOnClickListener(view -> {
