@@ -3,16 +3,13 @@
 
     <color name="black">#FFFFFFFF</color>
     <color name="white">#FF000000</color>
-
+    <color name="btnText">#FFFFFF</color>
     <color name="btnPurple">#610F8A</color>
     <color name="sky">#26354D</color>
-
     <color name="blue1">#4B6EFF</color>
     <color name="blue2">#22D3EE</color>
-
     <color name="splash1">#BB55E9</color>
     <color name="splash2">#8524B3</color>
-
     <color name="gray">#B5B5B5</color>
 
     <!-- Theme colors -->

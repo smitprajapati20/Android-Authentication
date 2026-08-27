@@ -20,7 +20,7 @@
             android:id="@+id/back"
             android:layout_width="@dimen/_58sdp"
             android:layout_height="@dimen/_35sdp"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_return_svgrepo_com"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,6 +73,7 @@
         android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
         android:text="CHANGE PASSWORD"
+        android:textColor="@color/btnText"
         android:id="@+id/forgetPassword_btn"
         android:layout_marginTop="@dimen/_45sdp"
         android:layout_gravity="center"

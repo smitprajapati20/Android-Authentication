@@ -19,7 +19,7 @@
             android:id="@+id/back"
             android:layout_width="@dimen/_58sdp"
             android:layout_height="@dimen/_35sdp"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_return_svgrepo_com"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,6 +108,8 @@
         android:layout_height="wrap_content"
         android:text="EDIT PROFILE"
         android:id="@+id/profile_btn"
+        android:textColor="@color/btnText"
+        android:textStyle="bold"
         android:layout_marginTop="@dimen/_41sdp"
         android:layout_gravity="center"
         android:textSize="@dimen/_17sdp"
@@ -121,6 +123,8 @@
         android:layout_height="wrap_content"
         android:text="UPDATE PROFILE"
         android:id="@+id/update_profile_btn"
+        android:textColor="@color/btnText"
+        android:textStyle="bold"
         android:layout_marginTop="@dimen/_41sdp"
         android:layout_gravity="center"
         android:textSize="@dimen/_17sdp"

@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_100sdp">
+        android:layout_marginTop="@dimen/_90sdp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="@dimen/_135sdp"
@@ -72,6 +72,8 @@
             <Button
                 android:id="@+id/category"
                 app:backgroundTint="@null"
+                android:textColor="@color/btnText"
+                android:textStyle="bold"
                 android:background="@drawable/custom_button"
                 android:layout_width="@dimen/_98sdp"
                 android:layout_height="wrap_content"
@@ -103,6 +105,8 @@
                 <Button
                     android:id="@+id/profile_btn"
                     app:backgroundTint="@null"
+                    android:textColor="@color/btnText"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_button"
                     android:layout_width="@dimen/_98sdp"
                     android:layout_height="wrap_content"
@@ -129,6 +133,8 @@
             <Button
                 android:id="@+id/logout"
                 android:layout_width="@dimen/_125sdp"
+                android:textColor="@color/btnText"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@null"
                 android:background="@drawable/custom_button"
@@ -136,6 +142,8 @@
             <Button
                 android:id="@+id/delete_btn"
                 android:layout_width="@dimen/_125sdp"
+                android:textColor="@color/btnText"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@null"
                 android:background="@drawable/custom_button"
