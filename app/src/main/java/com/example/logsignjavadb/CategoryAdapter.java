@@ -2,6 +2,7 @@ package com.example.logsignjavadb;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHold
     String[] nameArray;
     int[] imageArray;
     ArrayList<CategoryList> arrayList;
+    SharedPreferences sp;
 
     public CategoryAdapter(Context context, ArrayList<CategoryList> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        sp = context.getSharedPreferences(ConstatSP.DataB,Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -52,6 +55,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sp.edit().putString(ConstatSP.categoryid,String.valueOf(arrayList.get(position).getId())).commit();
                 Intent intent = new Intent(context, SubCategoryActivity.class);
                 context.startActivity(intent);
 
